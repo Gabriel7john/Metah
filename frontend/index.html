@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metas Diárias</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Tela de autenticação -->
+    <section id="tela-auth" class="tela">
+      <div class="card-auth">
+        <h1>Metas Diárias</h1>
+        <div class="tabs">
+          <button id="tab-login" class="tab ativa">Entrar</button>
+          <button id="tab-registro" class="tab">Criar conta</button>
+        </div>
+
+        <form id="form-login" class="form-auth">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input
+            type="password"
+            id="login-senha"
+            placeholder="Senha"
+            required
+          />
+          <button type="submit">Entrar</button>
+          <p class="erro" id="erro-login"></p>
+        </form>
+
+        <form id="form-registro" class="form-auth" style="display: none">
+          <input type="text" id="registro-nome" placeholder="Nome" required />
+          <input
+            type="email"
+            id="registro-email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            id="registro-senha"
+            placeholder="Senha"
+            required
+          />
+          <button type="submit">Criar conta</button>
+          <p class="erro" id="erro-registro"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="tela-dashboard" class="tela" style="display: none">
+      <header class="topo">
+        <h1>Minhas Metas</h1>
+        <button id="btn-sair">Sair</button>
+      </header>
+
+      <form id="form-nova-meta" class="form-nova-meta">
+        <input
+          type="text"
+          id="input-titulo"
+          placeholder="Nova meta (ex: beber 2L de água)"
+          required
+        />
+        <input type="color" id="input-cor" value="#4f46e5" />
+        <button type="submit">Adicionar</button>
+
+        <div class="linha-tipo">
+          <select id="input-tipo">
+            <option value="simples">Sim ou não</option>
+            <option value="contador">Com progresso</option>
+          </select>
+          <div
+            id="campos-contador"
+            class="campos-contador"
+            style="display: none"
+          >
+            <input
+              type="number"
+              id="input-alvo"
+              placeholder="Alvo (ex: 2000)"
+              min="0"
+              step="any"
+            />
+            <input
+              type="text"
+              id="input-unidade"
+              placeholder="Unidade (ex: ml)"
+              maxlength="20"
+            />
+            <input
+              type="number"
+              id="input-passo"
+              placeholder="Passo (ex: 250)"
+              min="0"
+              step="any"
+            />
+          </div>
+        </div>
+      </form>
+
+      <div id="lista-metas" class="lista-metas"></div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
