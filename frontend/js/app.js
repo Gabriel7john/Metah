@@ -231,9 +231,27 @@ async function carregarMetas() {
   });
 }
 
+const FRASES = [
+  "Pequenos passos todos os dias levam longe.",
+  "Constância vence motivação.",
+  "Hoje é dia de cumprir o combinado com você mesmo.",
+  "Não precisa ser perfeito, precisa ser feito.",
+  "Um dia de cada vez, uma meta de cada vez.",
+  "Quem começa hoje já sai na frente de quem começa amanhã.",
+  "O hábito de hoje é o resultado de amanhã.",
+];
+
+function mostrarFraseDoDia() {
+  // muda a cada dia, mas fica igual durante o dia todo
+  const dia = Math.floor(Date.now() / 86400000);
+  document.getElementById("frase-dia").textContent =
+    FRASES[dia % FRASES.length];
+}
+
 function mostrarDashboard() {
   telaAuth.style.display = "none";
   telaDashboard.style.display = "block";
+  mostrarFraseDoDia();
   carregarMetas();
 }
 
