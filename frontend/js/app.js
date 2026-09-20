@@ -161,6 +161,20 @@ async function carregarMetas() {
       '<p style="text-align:center;color:#888">Nenhuma meta ainda. Adicione a primeira acima!</p>';
     return;
   }
+  function atualizarResumo(metas) {
+    const resumo = document.getElementById("resumo-dia");
+
+    if (metas.length === 0) {
+      resumo.textContent = "";
+      return;
+    }
+
+    const feitas = metas.filter((m) => m.concluidaHoje).length;
+    const percentual = Math.round((feitas / metas.length) * 100);
+    const todas = feitas === metas.length ? " 🎉" : "";
+
+    resumo.textContent = `Hoje: ${feitas} de ${metas.length} metas concluídas (${percentual}%)${todas}`;
+  }
 
   metas.forEach((meta) => {
     const card = document.createElement("div");
