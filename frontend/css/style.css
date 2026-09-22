@@ -322,3 +322,16 @@ body {
 #tela-dashboard {
   background: #eceefe;
 }
+
+/* --- Menos branco --- */
+#tela-auth {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #ec4899 100%);
+}
+
+.card-auth {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+#tela-dashboard {
+  background: #eceefe;
+}
