@@ -153,6 +153,7 @@ function htmlMetaContador(meta) {
 
 async function carregarMetas() {
   const metas = await api.listarMetas();
+  metas.sort((a, b) => Number(a.concluidaHoje) - Number(b.concluidaHoje));
   const lista = document.getElementById("lista-metas");
   lista.innerHTML = "";
 
